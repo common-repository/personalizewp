@@ -1,0 +1,781 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+/**
+ * Variables
+ */
+$red: #F20FA6;
+$blue: #0A1F43;
+$pink: #EA5084;
+$purple: #C127A0;
+$text-color: #1a1a1a;
+$text-color-muted: #9d9d9d;
+$text-muted: #9d9d9d;
+$link-color: var(--purple);
+$link-decoration: none; // underline;
+$link-hover-color: #811a6b;
+$link-hover-decoration: none;
+
+body.pwp-page {
+	&.pwp-fixed {
+		position: fixed;
+		min-width: 100vw;
+	}
+	#wpcontent {
+		padding-left: 0 !important;
+	}
+	#screen-meta-links {
+		margin-bottom: min( -30px, -2rem );
+	}
+}
+
+// Import some parts to be available outside of CSS scope
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+/** Base */
+:where(#wp-dxp) {
+	// CSS Scoping Bootstrap to not affect WP in general
+	@import "node_modules/bootstrap/scss/bootstrap";
+
+	svg {
+		vertical-align: baseline; // Override Bootstrap
+	}
+}
+:is(#wp-dxp) {
+	background: #FCFCFF;
+	min-height: 100vh;
+
+	line-height: 1.5;
+	font-size: 1rem;
+	// Dup Sass to CSS for flexibility
+	--blue: #0A1F43;
+	--blue-50: #F9F9FF;
+	--pink: #EA5084;
+	--purple: #C127A0;
+	--purple-100: #FFE2F9;
+	--purple-50: #FFF5FD;
+	--purple-gradient: linear-gradient(90deg, var(--purple) 0%, #F20FA6 100%);
+	accent-color: var(--purple);
+
+	a:where(.back):not(.wp-dxp-delete-rule) {
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+	}
+
+@import "layout";
+
+.container-fluid {
+	padding: 0 20px; // WP admin is fixed width
+}
+
+// Header
+@import "header";
+
+
+/** Content Sections */
+
+
+> main {
+	padding-inline: 20px; // WP admin is fixed width
+}
+
+.section {
+	+ .section {
+  	margin-block-start: 2rem;
+	}
+	&:last-of-type {
+		padding-block-end: 2rem;
+	}
+}
+
+
+.discount-offer-block {
+  background-color: #f10fa6 !important;
+  margin-top: -1rem;
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  .discount-offer-text {
+    color: white;
+    margin-bottom: 0;
+    text-align: center;
+    line-height: 1.5rem;
+
+    a {
+      color: white !important;
+      text-decoration: none !important;
+      border-bottom: 1px solid white;
+      padding-bottom: 2px;
+
+      &:hover {
+        cursor: pointer !important;
+      }
+    }
+  }
+}
+
+// Customising the default WP notices, and similar
+@import "notices";
+
+.notice ~ :where(.notice, .header-nav, main, .section:first-of-type) {
+	margin-block-start: 2rem;
+}
+
+:where(.section-title,.dashboard-title) {
+  font-weight: 500;
+  margin-bottom: 0;
+  font-size: 1.75rem;
+}
+
+.section-subtitle {
+  font-size: 1.25rem;
+}
+
+.section-description p {
+  font-size: 0.9375rem;
+  color: #1A1A1A;
+  clear: both;
+	margin-block-end: 0;
+	+ p {
+		margin-block-start: 1em;
+	}
+}
+
+// Buttons
+@import "buttons";
+
+/** Forms */
+
+.chosen-container-single .chosen-single {
+  padding: 0 1.5rem 0 .75rem;
+}
+
+[id=wp-dxp-form] {
+  display: flex;
+  flex-direction: column;
+}
+:is([id=wp-dxp-form], .pwp-form) {
+	:where(label,.label) {
+		color: #000;
+		font-size: 0.9375rem;
+		font-weight: 600;
+		display: flex;
+		align-items: center;
+		margin-inline: auto;
+		&.nowrap {
+			white-space: nowrap;
+		}
+		+ * {
+			--flow-space: 0.25rem;
+		}
+	}
+	:where(.form-group,.conditions-container) > label {
+		margin-bottom: .5rem;
+	}
+  input {
+    border-radius: 4px !important;
+    font-size: 0.875rem;
+    line-height: 1;
+    padding: 0 1.5rem 0 .75rem;
+
+		&:not(.is-invalid):not(:invalid) {
+      border-color: #C4C4C4;
+    }
+		&:not([type="checkbox"],[type="submit"]) {
+			min-height: 2.5rem;
+			width: 100%;
+		}
+    &:disabled {
+      background: #E9E9E9;
+      position: relative;
+      color: #1A1A1A;
+      border: 0;
+    }
+    &:focus {
+      outline: 1px solid #0074E7;
+      box-shadow: none;
+    }
+  }
+
+  select {
+	width: min(100%, 30rem);
+    font-size: 0.875rem;
+		line-height: 2.5;
+    border-radius: 4px;
+    padding: 0 1.5rem 0 .75rem;
+		height: auto;
+		min-height: 2.5rem;
+    border: 1px solid #C4C4C4;
+    &:disabled {
+      &.conditions-value {
+        margin-right: 0 !important;
+      }
+      opacity: 1;
+      width: 100%;
+      // height: 40px;
+      background: #E9E9E9;
+      position: relative;
+      color: #1A1A1A;
+      border: 0;
+    }
+    &:where(.is-invalid, :invalid) + .chosen-container .chosen-single {
+      border-color: #dc3545 !important;
+    }
+  }
+
+//   .chosen-single {
+//     background: #fff !important;
+//     border-radius: 4px !important;
+//     border-color: #C4C4C4 !important;
+//     height: 40px !important;
+//     display: flex;
+//     align-items: center;
+//     font-size: 0.9375rem;
+//     box-shadow: none !important;
+// 		color: inherit;
+// 		text-decoration: none;
+
+//     b {
+//       background: url("../img/chosen-sprite.png") no-repeat 0px 9px;
+//     }
+//   }
+
+  .condition {
+	display: flex;
+	gap: 1rem;
+	> * {
+		width: min(100%, 30rem);
+	}
+    // width: 100% !important;
+
+    // select {
+    //   width: 100% !important;
+    //   // margin-right: 16px;
+    // }
+
+    // .chosen-single {
+    //   display: inline-flex;
+    //   width: 100% !important;
+    // }
+
+    // .chosen-container,
+    // .field-wrapper-styles {
+    // //   width: 100% !important;
+    //   // margin-right: 16px;
+    // }
+
+    .field-wrapper-styles {
+      input {
+        // display: inline-flex;
+        // width: 100% !important;
+        background-color: #fff !important; // only target colour
+        border-radius: 4px !important;
+        border-color: #C4C4C4 !important;
+        box-shadow: none !important;
+        min-height: 40px !important;
+        display: flex;
+        align-items: center;
+        font-size: 0.9375rem;
+        &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: #444;
+          opacity: .5; /* Firefox */
+
+          @media only screen and (max-width: 600px) {
+            font-size: 16px;
+          }
+        }
+        &:disabled {
+          background: #E9E9E9 !important;
+          &::placeholder {
+            color: #1A1A1A !important;
+          }
+        }
+
+        @media only screen and (max-width: 600px) {
+          box-shadow: none !important;
+          border-color: #8c8f94 !important;
+          border-radius: 3px !important;
+        }
+      }
+
+      @media only screen and (max-width: 600px) {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+
+    // .chosen-container .chosen-drop  {
+    //   width: 100% !important;
+    //   border-radius: 0 !important;
+    //   border-color: #C4C4C4 !important;
+    //   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15) !important;
+    // }
+
+    // .chosen-search-input {
+    //   width: 100% !important;
+    // }
+
+  }
+	:where(
+		[data-condition-count="0"] .condition,
+		[data-condition-count="1"] .condition
+	 ) {
+		.button-conditions-wrapper {
+			visibility: hidden;
+		}
+	}
+
+  .category-dropdown {
+    select {
+    width: 100% !important;
+    }
+    // .chosen-single {
+    //   width: 100% !important;
+    // }
+    // .chosen-container .chosen-drop  {
+    //   border-color: #C4C4C4 !important;
+    // }
+    &.disabled-styles {
+    //   .chosen-single {
+    //     background-color: #E9E9E9 !important;
+    //     position: relative;
+    //     color: #1A1A1A;
+    //     border: 0;
+    //     pointer-events: none;
+    //     &:after {
+    //       content: '';
+    //       position: absolute;
+    //       top: 0;
+    //       left: 0;
+    //       width: 100%;
+    //       height: 100%;
+    //     }
+    //   }
+    }
+  }
+}
+
+// .chosen-container .chosen-results li {
+//   font-size: 0.9375rem;
+//   line-height: 1.1rem;
+//   // color: #333;
+// }
+
+.button-conditions-wrapper {
+  display: flex;
+  flex: 0; // Don't grow/shrink
+  .remove-condition {
+		display: flex;
+    background: none;
+    border: 0;
+    padding: 0;
+		&:disabled {
+			opacity: .33;
+			filter: grayscale(1);
+		}
+  }
+  button:last-child {
+    margin-right: 0;
+  }
+}
+
+.add-condition {
+  color: var(--purple);
+  background: none;
+  border: none;
+	border-radius: 4px;
+
+  &:hover,
+	&:focus {
+		color: $link-hover-color;
+    cursor: pointer;
+    outline: 0;
+  }
+	&:focus-visible {
+		outline: 2px solid var(--purple);
+	}
+}
+.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+.rule-message {
+  color: red;
+  font-size: 1rem;
+}
+
+
+
+// table.dataTable {
+//   margin-bottom: 0 !important;
+// }
+
+@media only screen and (max-width: 782px) {
+  .auto-fold {
+    #wpcontent {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .header-nav {
+    padding-top: 0;
+  }
+  .auto-fold {
+    .nav-list {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      li {
+        width: 100%;
+        a {
+          padding-bottom: 0.25rem;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .conditions {
+    .condition {
+      flex-wrap: wrap;
+      select {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+
+// Legacy modals, overriding elements of Bootstrap for DXP
+// .modal {
+//   .col-lg-6 {
+//     -ms-flex: 0 0 100%;
+//     flex: 0 0 100%;
+//     max-width: 100%;
+//   }
+
+//   .btn-modal {
+//     display: inline-block;
+//   }
+// }
+
+//   :is(.modal-header, .modal-content, .modal-footer) {
+//     border: none !important;
+//   }
+
+//   .modal-content {
+//     box-shadow: 0 0 16px 0 rgba(0,0,0,0.25);
+//   }
+
+//   .btn-modal {
+//     display: none;
+//   }
+
+// Dialog/modals
+@import "dialog";
+
+
+:where(.categories,.rule-usage).with-sidebar {
+	--sidebar-target-width: 28rem;
+}
+
+.section-description p {
+	max-width: 980px; // 75ch;
+}
+
+// Plugin Header
+@import "list-tables";
+
+
+/**
+ * Customising layout
+ */
+label + :where(input,select) {
+	--flow-space: 0.25rem;
+}
+
+.tag-list {
+	display: flex;
+	margin: 0;
+	--gap-width: 1rem;
+
+	li {
+		list-style: '';
+		display: flex;
+		gap: .25rem;
+		align-items: center;
+		border: none;
+		border-radius: 5rem;
+		background-color: var(--purple-50);
+		color: var(--purple);
+		margin: 0;
+		padding: .25rem;
+		padding-inline-start: 1rem;
+
+		&:has(button:where(:hover,:focus),a.trash:where(:hover,:focus)) {
+			background-color: var(--purple-100);
+			outline: 1px solid var(--purple);
+		}
+	}
+	:where(button,a.trash) {
+		min-height: 2rem;
+		display: flex;
+		align-items: center;
+	}
+	button {
+		cursor: pointer;
+		border: none;
+		outline-color: transparent;
+		background: transparent;
+		color: currentColor;
+		fill: currentColor;
+		padding: 0;
+		margin: 0;
+		box-shadow: none;
+	}
+}
+
+/**
+ * Dashboard/Settings
+ */
+.dashboard {
+	padding-block: .5rem;
+	max-inline-size: 68rem;
+}
+.dashboard-title {
+  border-bottom: 1px solid #c4c4c4;
+  padding-bottom: 10px;
+	margin-bottom: 1rem;
+}
+.dashboard-description + * {
+	margin-top: 1.5rem;
+}
+@import "tiles";
+
+:where(main).with-sidebar {
+	--sidebar-content-min-width: 60%;
+}
+
+/**
+ * Settings
+ */
+:where(.wp-dxp-panel, .pwp-panel, .ajax-form) {
+	padding: 2rem;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15), 0 0 2px rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
+	background: #fff;
+	> * {
+		max-width: 55rem;
+	}
+	&:not(:last-child) {
+		margin-bottom: 3rem;
+	}
+
+	:where(.wp-dxp-panel__title, h2) {
+		margin-bottom: 1.5rem;
+		font-size: 1.25rem;
+	}
+
+	.form-table th {
+		padding-block: 15px; // Matching <td>
+		label {
+			font-size: 1rem;
+		}
+	}
+}
+
+form {
+	.cluster {
+		--gap-width: 1rem;
+	}
+	.switcher {
+		:where(.email,:has(input[type="email"])) {
+			// Double the width point
+			--threshold: 60rem;
+
+			input[type="email"] {
+				width: 100%;
+			}
+		}
+	}
+	label {
+		display: block;
+		margin-bottom: 0; // Override bootstrap
+		font-size: 0.9rem;
+		a:not(:hover,:focus-within) {
+			color: var(--purple);
+		}
+	}
+
+	:is(input[type="text"],
+		input[type="email"],
+		input[type="password"],
+		select,
+		textarea) {
+		border-color: #C4C4C4;
+		width: min(100%, 30rem);
+		min-height: 2.625rem;
+	}
+
+	input.search-icon {
+		background-image: url('../img/search-icon.svg') !important;
+		background-repeat: no-repeat;
+		background-position: center left 8px;
+		padding-left: 40px !important;
+	}
+}
+
+
+// Legacy styling
+.wp-dxp-input-group {
+  width: 100%;
+  margin-bottom: 1.5rem;
+
+  label {
+    display: block;
+    margin-bottom: .25rem;
+    font-size: 1rem;
+		a:not(:hover,:focus-within) {
+			color: var(--purple);
+		}
+  }
+
+  input,
+  textarea {
+    border-color: #C4C4C4;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+	min-height: 2.5rem;
+  }
+
+  &--error {
+    input,
+    textarea {
+      border-color: #d00;
+    }
+  }
+
+  &__error {
+    display: block;
+    font-size: 75%;
+    color: #d00;
+  }
+}
+
+/**
+ * Buttons
+ */
+ // Legacy styling
+.wp-dxp-button {
+  display: inline-flex;
+	align-items: center;
+  margin-right: 1rem;
+  padding: .5rem 1rem;
+  background: var(--purple-gradient);
+  color: #fff;
+  border-radius: .25rem;
+  font-size: .9375rem;
+  font-weight: 600;
+  transition: box-shadow .2s;
+  border: 0;
+	text-decoration: none;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  :where(.bi,.dashicons) {
+    // width: 1rem;
+    margin-right: 4px;
+  }
+
+  &:where(:hover,:focus-visible) {
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0, .25);
+  }
+
+  &--white {
+    background: #fff;
+    color: var(--purple);
+
+    &:hover {
+      color: var(--purple);
+    }
+  }
+}
+
+// Onboarding
+@import "onboarding";
+
+} // Closing #wp-dxp scoping
+
+// Pickup parts outside of the above scoping
+// @import "node_modules/bootstrap/scss/modal";
+
+// Customising the editor screen
+@import "editor";
+
+
+@keyframes rotate-360 {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes dialog-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-2rem);
+    display: none;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    display: block;
+  }
+}
+
+@keyframes dialog-fade-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+    display: block;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-2rem);
+    display: none;
+  }
+}
+
+@keyframes dialog-backdrop-fade-in {
+  0% {
+    background-color: rgb(0 0 0 / 0);
+  }
+
+  100% {
+    background-color: rgb(0 0 0 / 0.5);
+  }
+}

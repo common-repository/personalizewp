@@ -1,0 +1,112 @@
+/**
+ * Plugin Header
+ */
+ .wp-dxp-header {
+	box-sizing: border-box;
+  justify-content: space-between;
+	gap: 0 1rem;
+  margin-bottom: 1rem;
+
+  padding: 2.5rem 20px; // To support screen options button
+  background-color: $blue;
+  background-image: url(../img/header-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &,
+  .wp-dxp-breadcrumbs,
+  &__links {
+    display: flex;
+    align-items: center;
+  }
+
+  .wp-dxp-breadcrumbs {
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.5rem;
+
+    &__title {
+      display: flex;
+      margin: 0;
+    }
+
+
+    &__separator {
+      margin: 0 1rem;
+			font-weight: 100;
+    }
+  }
+
+  &__links {
+    color: $blue;
+
+    .wp-dxp-button {
+      padding: 0.5rem;
+    }
+  }
+
+  @media ( max-width: 991px ) {
+    flex-wrap: wrap;
+
+    &,
+    .wp-dxp-breadcrumbs,
+    &__links {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .wp-dxp-breadcrumbs {
+      margin-bottom: 1.625rem;
+			flex-wrap: wrap;
+    }
+  }
+
+  @media ( max-width: 480px ) {
+    &__links {
+      width: auto;
+      align-items: stretch;
+      flex-direction: column;
+
+      .wp-dxp-button {
+        margin-left: 0;
+        margin-bottom: .5rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px){
+    &__links {
+
+      .wp-dxp-button {
+        padding: .5rem 0.25rem;
+      }
+    }
+  }
+
+
+  @media ( min-width: 1200px ) {
+    &__links {
+
+      .wp-dxp-button {
+        padding: .5rem 1rem;
+      }
+    }
+  }
+
+	~ .wp-dxp-messages {
+		margin-block: 1rem 2rem;
+	}
+}
+
+
+
+/** Content Header */
+
+.header-nav {
+	margin-inline: 20px;
+	margin-block-end: 2rem;
+}

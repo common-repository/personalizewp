@@ -1,0 +1,116 @@
+// Customising the default WP notices, and similar
+:is(.notice,.notice-message) {
+
+	// WP, shifted to page top
+	&.notice {
+		margin-left: 20px; // Align with rest of content
+	}
+	// Duplicating WP, but inline, require more than 1 class
+	&.notice-message:not([class="notice-message"]) {
+		background: #fff;
+		border: 1px solid var(--fill, #c3c4c7);
+		border-left-width: 4px;
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+		padding: 1px 12px;
+
+		p {
+			margin-block: 0.5em;
+  			padding: 2px;
+		}
+	}
+
+	border-radius: 4px;
+	border-color: var(--fill, inherit);
+	color: #1A1A1A;
+
+	&:where(.notice-error,.notice-warning) {
+		--fill: #d63638;
+	}
+	&.notice-success {
+		--fill: #42BE65;
+		background-color: #DEFBE6;
+	}
+	&.notice-info {
+		--fill: var(--blue);
+		background-color: #F5FAFF;
+	}
+	:where(.dashicons) {
+		margin-inline-end: .5em;
+		color: var(--fill, inherit);
+	}
+	> .dashicons {
+		position: absolute;
+		left: .5em;
+		top: .5em;
+
+		~ * {
+			// Space for icon
+			margin-left: 2em;
+		}
+	}
+}
+
+// Used in forms
+.alert {
+	font-size: 15px;
+	line-height: 24px;
+	border-radius: 4px;
+	border-left-width: 4px;
+	padding: 0.75rem 2.5rem;
+	margin-bottom: 0;
+
+	.close {
+		padding: .5rem 1rem;
+	}
+	:where(.bi,.dashicons) {
+		position: absolute;
+		left: .5em;
+		top: .75em;
+		color: var(--fill, inherit);
+	}
+
+	& > h2 {
+		font-size: 15px;
+		line-height: 1.6;
+		font-weight: 600;
+		margin-bottom: 0;
+		color: inherit;
+	}
+	& > p {
+		margin-bottom: 0;
+	}
+	&.alert-success {
+		--fill: #42BE65;
+		background-color: #DEFBE6;
+		border-color: #42BE65;
+		color: #1A1A1A;
+	}
+	&.alert-info {
+		--fill: var(--blue);
+		background-color: #FFF;
+		border-color: var(--blue);
+		color: #1A1A1A;
+	}
+	&.alert-primary {
+		border-color: var(--blue);
+		color: #1A1A1A;
+		background: #F5FAFF;
+		i {
+			color: var(--blue);
+			margin-right: 10px;
+			font-size: 16px;
+		}
+	}
+	p, li {
+		font-size: inherit;
+		font-weight: 400;
+		line-height: 1.6;
+	}
+	p:last-child {
+		margin-bottom: 0;
+	}
+	li {
+		list-style-type: '- ';
+		margin-left: 1em;
+	}
+}

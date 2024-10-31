@@ -1,0 +1,61 @@
+{
+  "name": "personalizewp",
+  "title": "PersonalizeWP",
+  "version": "2.6.0",
+  "description": "PersonalizeWP plugin",
+  "author": "PersonalizeWP",
+  "license": "GPL-3.0",
+  "scripts": {
+    "preinstall": "composer install",
+    "css": "node sass.js",
+    "js": "npm-run-all -p build:publicjs build:adminjs",
+    "watch:css": "chokidar './src/*/css/*.scss' -c 'npm run css'",
+    "watch:js": "chokidar './src/*/js/**/*.js' -c 'npm run js'",
+    "start": "npm run watch",
+    "watch": "npm-run-all -p watch:css watch:js",
+    "build": "npm-run-all -p css js",
+    "build:publicjs": "wp-scripts build src/public/js/*.js --output-path=public/js",
+    "build:adminjs": "wp-scripts build src/admin/js/*.js --output-path=admin/js",
+    "plugin-zip": "wp-scripts plugin-zip"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/filter-digital/personalizewp.git"
+  },
+  "files": [
+    "!.DS_Store",
+    "index.php",
+    "personalizewp.php",
+    "uninstall.php",
+    "changelog.*",
+    "license.*",
+    "readme.*",
+    "GeoLite2-Country.mmdb",
+    "admin/**",
+    "includes/**",
+    "public/**",
+    "src/**",
+    "languages/**",
+    "vendor/autoload.php",
+    "vendor/composer/**",
+    "vendor/geoip2/geoip2/*",
+    "vendor/geoip2/geoip2/src/*",
+    "vendor/maxmind/web-service-common/*",
+    "vendor/maxmind/web-service-common/src/**",
+    "vendor/maxmind-db/reader/*",
+    "vendor/maxmind-db/reader/src/**",
+    "!vendor/geoip2/geoip2/examples/**",
+    "!vendor/maxmind/web-service-common/dev-bin/**",
+    "!vendor/maxmind-db/reader/ext/**"
+  ],
+  "devDependencies": {
+    "@wordpress/scripts": "^26",
+    "bootstrap": "^4.5.0",
+    "chokidar-cli": "^3",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.69"
+  },
+  "dependencies": {
+    "tabbyjs": "^12"
+  }
+}

@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="394" height="225" fill="none" viewBox="0 0 394 225">
+  <path fill="#DCEEFF" d="M0 0h394v225H0z"/>
+  <g filter="url(#filter0_d_1064_6892)">
+    <circle cx="197" cy="168" r="28" fill="#fff"/>
+    <path fill="#999" d="M210.4 157.11a1.13 1.13 0 0 0-1.37.33c-.02.03-2.8 3.85-12.03 3.85-9.18 0-11.97-3.78-12.03-3.85a1.12 1.12 0 0 0-1.37-.34.98.98 0 0 0-.54 1.22c.02.06 1.54 4.12 5.94 6.67v.01a8 8 0 1 0 16 0v-.01c4.4-2.55 5.92-6.62 5.95-6.67a.98.98 0 0 0-.55-1.2ZM202.6 175h-1.04a10.87 10.87 0 0 1-9.12 0h-1.04a8.36 8.36 0 0 0-7.8 5.36c-.5 1.28.53 2.64 1.9 2.64h23c1.37 0 2.4-1.36 1.9-2.64a8.36 8.36 0 0 0-7.8-5.36Zm1.8-16.9c-.69-3.1-1.97-7.1-4.02-7.1a2.8 2.8 0 0 0-1.7.65 2.65 2.65 0 0 1-3.26 0 2.8 2.8 0 0 0-1.7-.65c-2.06 0-3.35 4.03-4.04 7.13a20.5 20.5 0 0 0 7.32 1.16c3.39 0 5.77-.56 7.4-1.2Z"/>
+  </g>
+  <g filter="url(#filter1_d_1064_6892)">
+    <path fill="#fff" d="M145 28h104v66H145z"/>
+    <g clip-path="url(#clip0_1064_6892)">
+      <path fill="#999" d="M189.5 47.5v-1.21c-.72.26-1.37.69-1.88 1.26v-.05a4.13 4.13 0 0 0-4.12 4.13v2.62a.75.75 0 0 0 .75.75h.75a.75.75 0 0 0 .75-.75v-2.63c0-.61.32-1.14.79-1.48-.01.12-.04.24-.04.36a4.48 4.48 0 0 0 1.43 3.28l-1.2 3.21a3 3 0 0 0-.1 1.78l1.16 4.66c.08.31.4.57.73.57h3.09a.75.75 0 0 0 .73-.93l-1.24-4.94 1.12-2.98 1.03.17v-3.4a4.5 4.5 0 0 1-3.75-4.42Zm7.5 0V46h-6v1.5a3 3 0 1 0 6 0Zm13.5-3.91c0-.38-.15-.74-.4-1.02l-.65-.68a2.2 2.2 0 0 0 1.04-1.44.39.39 0 0 0-.21-.42.38.38 0 0 0-.16-.03h-5.63a6 6 0 0 0-5.99 5.96v1.54a4.5 4.5 0 0 1-3.75 4.43v3.65l3.75.62v7.05a.75.75 0 0 0 .75.75h3a.75.75 0 0 0 .75-.75v-8.33c.96-.98 1.5-2.3 1.5-3.67v-4.83l.75.33.88 1.77a1.5 1.5 0 0 0 1.9.72l1.53-.61c.52-.21.94-.83.94-1.4V43.6Zm-3 .91a.75.75 0 0 1-.53-1.28.75.75 0 0 1 1.28.53.75.75 0 0 1-.75.75Z"/>
+    </g>
+    <rect width="88" height="4" x="153" y="74" fill="#EBEBEB" rx="2"/>
+    <rect width="88" height="4" x="153" y="82" fill="#EBEBEB" rx="2"/>
+  </g>
+  <g filter="url(#filter2_d_1064_6892)">
+    <path fill="#fff" d="M261 74h104v66H261z"/>
+    <g clip-path="url(#clip1_1064_6892)">
+      <path fill="#999" d="M321.63 101c-.2 0-.36.06-.53.1l-1.85-3.1 1.85-3.1c.17.04.34.1.52.1a1.88 1.88 0 0 0 0-3.75c-.9 0-1.62.65-1.8 1.5h-3.7l-2.01-3.4a1.84 1.84 0 0 0 .22-2.8 1.88 1.88 0 0 0-3.2 1.33c0 .61.31 1.13.77 1.47l-2.02 3.4h-3.7a1.85 1.85 0 0 0-3.13-.95 1.87 1.87 0 0 0 1.33 3.2c.18 0 .35-.06.52-.1l1.85 3.1-1.85 3.1c-.17-.04-.34-.1-.52-.1a1.88 1.88 0 0 0 0 3.75c.9 0 1.62-.65 1.8-1.5h3.7l2.01 3.4a1.84 1.84 0 0 0-.22 2.8 1.88 1.88 0 0 0 3.2-1.33c0-.61-.31-1.13-.77-1.47l2.02-3.4h3.7a1.85 1.85 0 0 0 3.13.95 1.88 1.88 0 0 0-1.33-3.2Zm-8.63 0a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/>
+    </g>
+    <rect width="88" height="4" x="269" y="120" fill="#EBEBEB" rx="2"/>
+    <rect width="88" height="4" x="269" y="128" fill="#EBEBEB" rx="2"/>
+  </g>
+  <g filter="url(#filter3_d_1064_6892)">
+    <path fill="#fff" d="M29 74h104v66H29z"/>
+    <path fill="#999" d="M88.97 99.92C88.52 97.22 87.12 89 84.39 89c-.66 0-1.24.28-1.74.66a2.73 2.73 0 0 1-3.3 0A2.88 2.88 0 0 0 77.6 89c-2.73 0-4.13 8.23-4.58 10.92 1.82.59 4.4 1.08 7.97 1.08 3.58 0 6.15-.5 7.97-1.08Zm6.7-1.75a.75.75 0 0 0-.93.07C94.7 98.3 90 102.5 81 102.5c-8.95 0-13.7-4.22-13.75-4.26a.75.75 0 0 0-1.2.82c.03.1 3.62 9.44 14.95 9.44a15.84 15.84 0 0 0 14.95-9.44.75.75 0 0 0-.28-.89Z"/>
+    <rect width="88" height="4" x="37" y="120" fill="#EBEBEB" rx="2"/>
+    <rect width="88" height="4" x="37" y="128" fill="#EBEBEB" rx="2"/>
+  </g>
+  <path stroke="#fff" stroke-dasharray="3 3" stroke-width="2" d="M196 132v-30m-31.49 47.92-21.22-21.21m85 19.58 21.22-21.21"/>
+  <defs>
+    <filter id="filter0_d_1064_6892" width="88" height="88" x="153" y="132" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+      <feOffset dy="8"/>
+      <feGaussianBlur stdDeviation="8"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix values="0 0 0 0 0.0777057 0 0 0 0 0.181831 0 0 0 0 0.304065 0 0 0 0.1 0"/>
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_1064_6892"/>
+      <feBlend in="SourceGraphic" in2="effect1_dropShadow_1064_6892" result="shape"/>
+    </filter>
+    <filter id="filter1_d_1064_6892" width="136" height="98" x="129" y="20" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+      <feOffset dy="8"/>
+      <feGaussianBlur stdDeviation="8"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix values="0 0 0 0 0.0777057 0 0 0 0 0.181831 0 0 0 0 0.304065 0 0 0 0.1 0"/>
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_1064_6892"/>
+      <feBlend in="SourceGraphic" in2="effect1_dropShadow_1064_6892" result="shape"/>
+    </filter>
+    <filter id="filter2_d_1064_6892" width="136" height="98" x="245" y="66" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+      <feOffset dy="8"/>
+      <feGaussianBlur stdDeviation="8"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix values="0 0 0 0 0.0777057 0 0 0 0 0.181831 0 0 0 0 0.304065 0 0 0 0.1 0"/>
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_1064_6892"/>
+      <feBlend in="SourceGraphic" in2="effect1_dropShadow_1064_6892" result="shape"/>
+    </filter>
+    <filter id="filter3_d_1064_6892" width="136" height="98" x="13" y="66" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+      <feOffset dy="8"/>
+      <feGaussianBlur stdDeviation="8"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix values="0 0 0 0 0.0777057 0 0 0 0 0.181831 0 0 0 0 0.304065 0 0 0 0.1 0"/>
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_1064_6892"/>
+      <feBlend in="SourceGraphic" in2="effect1_dropShadow_1064_6892" result="shape"/>
+    </filter>
+    <clipPath id="clip0_1064_6892">
+      <path fill="#fff" d="M183.5 40h27v24h-27z"/>
+    </clipPath>
+    <clipPath id="clip1_1064_6892">
+      <path fill="#fff" d="M301 86h24v24h-24z"/>
+    </clipPath>
+  </defs>
+</svg>

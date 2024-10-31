@@ -1,0 +1,119 @@
+:where(.pwp-tiles) {
+	max-inline-size: 65rem;
+	--grid-min-width: 18rem;
+	--gap-width: 2rem 1.5rem;
+	padding-block-end: 2rem;
+
+	&.cta-sidebar {
+		margin-inline: 0;
+		max-inline-size: unset;
+		align-self: flex-start;
+	}
+
+	:where(.tile) {
+		color: $text-color;
+		background: #fff;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15), 0 0 2px rgba(0, 0, 0, 0.1);
+		border-radius: .25rem;
+		font-size: .875rem;
+		position: relative;
+
+		img {
+			width: 100%;
+			aspect-ratio: 2/1;
+			object-fit: cover;
+		}
+		&.disabled img {
+			filter: grayscale(1);
+		}
+
+		.banner {
+			z-index: 1; // Fix issue due to filter
+			place-self: center;
+			font-size: .75rem;
+			text-align: center;
+			color: #fff;
+			font-weight: bold;
+			&.coming-soon {
+				border-radius: 3rem;
+				background: var(--blue);
+				padding: .5rem .75rem;
+				text-transform: uppercase;
+			}
+			&.upgrade a {
+				margin-top: 0;
+			}
+		}
+
+		:where(.tile__content) {
+			display: flex;
+			flex-direction: column;
+			padding-block: 1rem 2rem;
+			padding-inline: 1rem;
+			> * {
+				// Remove inherited, we'll use flow
+				margin: 0;
+			}
+		}
+
+		&:not(.has-button) .tile__content {
+			padding-inline-end: 2rem;
+			padding-block-end: 1rem;
+		}
+
+		&.has-button .tile__content {
+			align-items: center;
+			text-align: center;
+		}
+
+		.tile__title {
+			color: var(--purple);
+			font-size: .875rem;
+			font-weight: bold;
+			+ * {
+				--flow-space: .25rem;
+			}
+
+			a {
+				text-decoration: none;
+				color: inherit;
+
+				// Expand link to whole tile
+				&::before {
+					content: '';
+					position: absolute;
+					inset: 0;
+				}
+				// Little arrow effect
+				&::after {
+					content: '';
+					position: absolute;
+					bottom: 2.5rem;
+					right: .75rem;
+					width: .6rem;
+					height: .6rem;
+					border-top: .15rem solid var(--blue);
+					border-right: .15rem solid var(--blue);
+					transform: rotate(45deg) translateX(-.5rem) translateY(50%);
+					transition: right .2s;
+				}
+				&:where(:hover,:focus-within)::after {
+					right: .25rem;
+				}
+			}
+		}
+
+		&.has-button .tile__title {
+			color: $text-color;
+			font-size: 1.25rem;
+		}
+
+		&.disabled .tile__title {
+			color: $text-color-muted;
+		}
+
+		.btn {
+			--flow-space: 1.5rem;
+		}
+	}
+}

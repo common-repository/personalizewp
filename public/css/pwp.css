@@ -1,0 +1,6 @@
+@charset "UTF-8";
+/*! PersonalizeWP v2.6.0 | (c) 2024 PersonalizeWP | GPL-3.0 License */
+:where(pwp-block, wp-dxp):empty,
+:where(pwp-block, wp-dxp):not(:defined) {
+	display: none !important;
+}

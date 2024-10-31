@@ -1,0 +1,353 @@
+// Layout
+dialog.onboarding {
+	height: 100vh;
+	width: 100vw;
+
+	// Can't put grid display onto a dialog, so have a wrapper
+	.wrapper {
+		padding: 0;
+		height: 100%;
+		width: 100%;
+
+		display: grid;
+		grid-template-areas:
+			"aside main"
+			"aside footer";
+
+		grid-template-columns: 0px auto;
+		grid-template-rows: 1fr auto;
+
+		@media (min-width: 768px) {
+			grid-template-columns: 112px auto;
+		}
+
+		aside {
+			grid-area: aside;
+		}
+		article {
+			grid-area: main;
+		}
+		> footer {
+			grid-area: footer;
+		}
+	}
+
+	aside {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: #fff;
+		background-color: var(--blue);
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='92' height='146' fill='none' viewBox='0 0 92 146'%3E%3Ccircle cx='73' cy='73' r='73' fill='url(%23pink_shape)' transform='matrix(0 -1 -1 0 92 146)'/%3E%3CradialGradient id='pink_shape' cx='0' cy='0' r='1' gradientTransform='rotate(139 112 19) scale(215)' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23D300A5'/%3E%3Cstop offset='1' stop-color='%23542A73' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/svg%3E%0A");
+		background-repeat: no-repeat;
+		background-position: bottom left;
+		overflow: hidden;
+
+		nav {
+			form {
+				display: flex;
+				place-content: center;
+				align-items: center;
+				margin-block-end: 1rem;
+
+				button {
+					border-color: hsla(204, 2%, 55%, 0.2);
+				}
+			}
+			button {
+				display: flex;
+				border: 2px solid transparent;
+				background-color: transparent;
+				color: inherit;
+				&[disabled] {
+					// Ensure defaults
+					cursor: auto;
+					opacity: inherit;
+					// Override WP defaults
+					border-color: transparent !important;
+					background-color: transparent !important;
+					color: inherit !important;
+				}
+
+				&:where(:hover,:focus-visible):not([disabled]) {
+					border-color: hsla(204, 2%, 55%, 0.6);
+					svg {
+						opacity: .6 !important;
+					}
+				}
+
+				aspect-ratio: 1;
+				padding: .5em;
+			}
+		}
+	}
+
+	article {
+		padding: 0;
+		display: flex;
+	}
+
+	section {
+		flex: 1; // Fill width
+		display: flex;
+		flex-direction: column;
+
+		> * {
+			padding-block: 2rem;
+			padding-inline: clamp(1.25rem, 0.6875rem + 2.8125vi, 3.5rem);
+		}
+	}
+
+	header {
+		display: flex;
+		gap: 1rem;
+		align-items: start;
+		min-height: 10rem;
+		background-color: #F9F9FF;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='526' height='220' fill='none' viewBox='0 0 526 220'%3E%3Cg fill-opacity='.1' opacity='.4'%3E%3Cpath fill='url(%23grey_shape1)' d='M321 110 232-48A124 124 0 1 0 16 74l90 158a124 124 0 1 0 215-122Z'/%3E%3Cpath fill='url(%23grey_shape2)' d='M403 178a123 123 0 1 0 0-246 123 123 0 0 0 0 246Z'/%3E%3C/g%3E%3Cdefs%3E%3CradialGradient id='grey_shape1' cx='0' cy='0' r='1' gradientTransform='matrix(173 -173 144 144 87 295)' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%230A1F43'/%3E%3Cstop offset='1' stop-color='%230A1F43' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='grey_shape2' cx='0' cy='0' r='1' gradientTransform='matrix(129 -129 120 120 343 178)' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%230A1F43'/%3E%3Cstop offset='1' stop-color='%230A1F43' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3C/svg%3E%0A");
+		background-repeat: no-repeat;
+		background-position: bottom right;
+
+		h1 {
+			font-size: 1.75rem;
+		}
+
+		img, svg {
+			flex-shrink: 0;
+			margin-inline-start: auto;
+		}
+	}
+
+	.content {
+		flex: 1;
+
+		:where(img) {
+			display: block;
+			max-width: 100%;
+			width: 100%;
+			height: auto;
+		}
+
+		:where(p) {
+			&:not([class]) {
+				max-width: 70ch;
+			}
+			// Override admin
+			margin-bottom: 0;
+		}
+
+		:where(iframe) {
+			width: 100%;
+			height: auto;
+			aspect-ratio: 16/9;
+		}
+
+		:where(label, .label) {
+			font-weight: normal;
+		}
+	}
+
+	:where(.onboard-cards) {
+		--gap-width: 1.75rem;
+		--grid-auto: auto-fit;
+		--grid-min-width: min(40%, 16rem);
+		&:has(:nth-child(4)) {
+			--grid-min-width: min(40%, 10rem);
+		}
+		margin-block: 2rem;
+
+		:where(.onboard-card) {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+		}
+	}
+	.switcher.onboard-cards {
+		--threshold: 40rem;
+	}
+
+	.stack.video {
+		// Limit max size
+		width: min(100%, 45rem);
+		margin-inline: auto;
+		margin-block-start: 1em;
+		overflow: hidden;
+		border-radius: 1.5rem;
+		box-shadow: 0px 2px 1.5rem -4px hsl(218 74% 15% / 0.2);
+
+		.overlay {
+			// Display over iframe
+			order: 1;
+			// centralise the button
+			display: grid;
+			place-content: center;
+		}
+		button {
+			aspect-ratio: 1;
+			padding: 20px;
+			border: none;
+			border-radius: 50%;
+			background: linear-gradient(90deg, #C127A0 0%, #F20FA6 100%);
+
+			&:where(:hover,:focus) {
+				border: 4px solid #fff;
+				outline: 2px solid transparent;
+			}
+			svg {
+				max-height: 100%;
+				width: auto;
+				// Combat the optical illusion of off center
+				transform: translateX(2px);
+			}
+		}
+	}
+	img.aligncenter {
+		max-width: min(28rem, 70vw);
+		margin-inline: auto;
+	}
+
+	footer.next-step {
+		margin-block-start: auto;
+		padding-block-end: 0;
+		display: flex;
+		place-content: center;
+	}
+
+	.cluster.checkmarks {
+		--gap-width: 0;
+	}
+
+	label.checkmark {
+		cursor: pointer;
+		margin:0;
+
+		display: flex;
+		gap: .4em;
+		justify-content: center;
+		align-items: center;
+		width: auto;
+		padding-block: 0.375rem;
+		padding-inline: 1.5rem 0.75rem;
+		border: 1px solid #ced4da;
+		transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+		&:first-child {
+			border-top-left-radius: 40px;
+			border-bottom-left-radius: 40px;
+		}
+		&:not(:last-child) {
+			border-right-color: transparent;
+		}
+		&:last-child {
+			border-top-right-radius: 40px;
+			border-bottom-right-radius: 40px;
+		}
+
+		input {
+			// Don't use display none as then gets no focus
+			clip:rect(1px, 1px, 1px, 1px);
+ 			clip-path:inset(50%);
+			height:1px;
+			margin:-1px;
+			overflow:hidden;
+			padding:0;
+			position:absolute;
+			width:1px;
+
+			&:before {
+				display: none; // Turn off WP style
+			}
+		}
+
+		svg {
+			opacity: 0;
+			flex-shrink: 0;
+		}
+
+		&:focus-within {
+			outline: max(2px, 0.15em) solid currentColor;
+			outline-offset: max(2px, 0.15em);
+		}
+		&:where(:hover,:focus-within) {
+			svg {
+				opacity: 0.2;
+			}
+		}
+
+		&:has(input:checked) {
+			background-color: rgb(193 39 160 / 0.25);
+			border-color: #000;
+
+			svg {
+				opacity: 1;
+			}
+		}
+	}
+
+	form {
+		margin: 0;
+		padding: 0;
+		box-shadow: none;
+		background-color: transparent;
+		max-width: 45rem;
+	}
+
+	:where(.wizard-progress) {
+		display: flex;
+		place-content: center;
+		align-items: center;
+		margin: 0;
+		padding: 0;
+		list-style: ''; // Retains semantics
+
+		li {
+			margin: 0;
+		}
+		&.icons {
+			flex-direction: column;
+			gap: .25rem;
+			--line-width: .3125rem;
+
+			li {
+				+ li:before {
+					// Line betwix the steps
+					display: block;
+					content: '';
+					position: relative;
+					top: 0;
+					left: calc(50% - (var(--line-width) / 2)); // Centralise
+					width: var(--line-width);
+					height: 2rem;
+					background-color: hsla(204, 2%, 55%, 0.2);
+					border-radius: calc(var(--line-width) / 2);
+				}
+				&:where(:not(.is-active,:focus-within)) svg {
+					// Dim any icons not within the current/active step
+					opacity: .2;
+				}
+			}
+		}
+		&.dots {
+			padding-block: 2rem;
+			gap: 1rem;
+			--line-width: 1.25rem;
+			--line-height: .625rem;
+			--line-color: #d9d9d9;
+
+			li {
+				height: var(--line-height);
+				width: var(--line-width);
+				border-radius: calc(var(--line-height) / 2);
+				background-color: var(--line-color);
+				color: var(--line-color);
+				transition: all 300ms ease;
+				&:where(.is-active) {
+					// Current step only is highlighted
+					--line-width: 3.75rem;
+					--line-color: #C127A0;
+				}
+			}
+		}
+	}
+}

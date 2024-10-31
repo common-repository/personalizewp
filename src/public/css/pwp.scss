@@ -1,0 +1,5 @@
+// Ensure placeholders don't show if not processed
+:where(pwp-block,wp-dxp):empty,
+:where(pwp-block,wp-dxp):not(:defined) {
+	display: none !important;
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "landingPage": "\/wp-admin\/admin.php?page=personalizewp",
+  "steps": [
+      {
+          "step": "installPlugin",
+          "pluginZipFile": {
+              "resource": "wordpress.org/plugins",
+              "slug": "personalizewp"
+          },
+          "options": {
+              "activate": true
+          }
+      },
+      {
+          "step": "login",
+          "username": "admin",
+          "password": "password"
+      }
+  ]
+}

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="394" height="225" fill="none" viewBox="0 0 394 225">
+  <path fill="#DCEEFF" d="M0 0h394v225H0z"/>
+  <g filter="url(#filter0_d_799_5206)">
+    <rect width="262" height="173" x="66" y="26" fill="#fff" rx="8"/>
+    <path fill="#EBEBEB" d="M98 101h95v27H98z"/>
+    <rect width="95" height="4" x="201" y="104.5" fill="#EBEBEB" rx="2"/>
+    <rect width="95" height="4" x="201" y="112.5" fill="#EBEBEB" rx="2"/>
+    <rect width="46" height="4" x="201" y="120.5" fill="#EBEBEB" rx="2"/>
+    <rect width="95" height="4" x="98" y="155.5" fill="#EBEBEB" rx="2"/>
+    <rect width="95" height="4" x="98" y="163.5" fill="#EBEBEB" rx="2"/>
+    <rect width="46" height="4" x="98" y="171.5" fill="#EBEBEB" rx="2"/>
+    <path fill="#EBEBEB" d="M201 152h95v27h-95z"/>
+    <path fill="#999" d="M66 26h262v8H66z"/>
+    <g clip-path="url(#clip0_799_5206)">
+      <path fill="#999" d="m212.56 77.67-6.23-6.23a1.5 1.5 0 0 0-1.06-.44h-1.02a13 13 0 1 0-2.25 2.25v1.02c0 .4.16.78.44 1.06l6.23 6.23a1.5 1.5 0 0 0 2.12 0l1.77-1.77a1.5 1.5 0 0 0 0-2.12ZM194 71a8 8 0 1 1-.01-15.99A8 8 0 0 1 194 71Z"/>
+    </g>
+  </g>
+  <defs>
+    <clipPath id="clip0_799_5206">
+      <path fill="#fff" d="M181 50h32v32h-32z"/>
+    </clipPath>
+    <filter id="filter0_d_799_5206" width="294" height="205" x="50" y="18" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+      <feOffset dy="8"/>
+      <feGaussianBlur stdDeviation="8"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix values="0 0 0 0 0.0777057 0 0 0 0 0.181831 0 0 0 0 0.304065 0 0 0 0.1 0"/>
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_799_5206"/>
+      <feBlend in="SourceGraphic" in2="effect1_dropShadow_799_5206" result="shape"/>
+    </filter>
+  </defs>
+</svg>

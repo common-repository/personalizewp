@@ -1,0 +1,49 @@
+:where(.btn,:where(a,button,input).button) {
+	border-radius: 4px;
+	border: none;
+	display: inline-flex;
+	place-content: center;
+	gap: .4em;
+	font-size: 1rem;
+	line-height: 1.8;
+	transition-property: border, background, color;
+	transition-duration: .15s;
+	transition-timing-function: ease-in-out;
+
+	// Only set when we're sure it's a major button of ours
+	&:where(.btn,.primary,.button-primary,.secondary,.button-secondary) {
+		padding: 0.4rem 1rem;
+		min-width: 130px;
+		min-height: 42px;
+	}
+
+	&:where(.primary,.button-primary) {
+		// Use both colour and image for transition
+		background-color: var(--purple);
+		background-image: var(--purple-gradient);
+		color: #fff;
+		&:where(:hover,:focus):not([disabled]) {
+			background: #fff;
+			color: var(--purple);
+			outline: 2px solid var(--purple);
+		}
+	}
+	&:where(.alt-bg,.secondary,.button-secondary,:not(.primary,.button-primary)) {
+		background: transparent;
+		border: 1px solid var(--purple);
+		color: var(--purple);
+		font-size: 0.875rem;
+		&:where(:hover,:focus):not([disabled]) {
+			background: var(--purple-50);
+			outline: 1px solid var(--purple);
+			// color: #fff;
+		}
+	}
+	&:where(.disabled,[disabled]) {
+		cursor: not-allowed;
+		opacity: 0.65;
+	}
+	+ :where(.btn,.button) {
+		margin-left: 0.5rem;
+	}
+}

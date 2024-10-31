@@ -1,0 +1,189 @@
+/*
+SIDEBAR
+
+More info:
+https://every-layout.dev/layouts/sidebar/
+
+A layout that allows you to have a flexible main content area
+and a "fixed" width sidebar that sits on the left or right.
+If there is not enough viewport space to fit both the sidebar
+width *and* the main content minimum width, they will stack
+on top of each other
+
+CUSTOM PROPERTIES AND CONFIGURATION
+--gutter (var(--gap-width)): This defines the space
+between the sidebar and main content.
+
+--sidebar-target-width (20rem): How large the sidebar should be
+
+--sidebar-content-min-width(50%): The minimum size of the main content area
+
+EXCEPTIONS
+.sidebar[data-direction='rtl']: flips the sidebar to be on the right
+*/
+.with-sidebar {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--gutter, var(--gap-width, 1rem));
+
+	&:not([data-direction]) {
+		> :first-child {
+			flex-basis: var(--sidebar-target-width, 25rem);
+			flex-grow: 1;
+		}
+
+		> :last-child {
+			flex-basis: 0;
+			flex-grow: 999;
+			min-inline-size: var(--sidebar-content-min-width, 50%);
+		}
+	}
+
+	&[data-direction='rtl']{
+		> :last-child {
+			flex-basis: var(--sidebar-target-width, 25rem);
+			flex-grow: 1;
+		}
+		> :first-child {
+			flex-basis: 0;
+			flex-grow: 999;
+			min-inline-size: var(--sidebar-content-min-width, 50%);
+		}
+	}
+}
+
+
+/*
+CLUSTER
+An informal grid of elements, wrapping when necessary
+
+CUSTOM PROPERTIES AND CONFIGURATION
+--gap-width (1rem): Gap between elements
+*/
+.cluster {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--gap-width, 0);
+	justify-content: flex-start;
+	align-items: center;
+}
+
+/*
+SWITCHER
+Similar to cluster, display as a single row, or as a column, not between.
+
+CUSTOM PROPERTIES AND CONFIGURATION
+--gap-width (1rem): Gap between elements
+--threshold (30rem): Minimum width of whole row, below which become a column
+*/
+.switcher {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--gap-width, 1rem);
+	--threshold: 30rem;
+}
+
+.switcher > * {
+	flex-grow: 1;
+	flex-basis: calc((var(--threshold) - 100%) * 999);
+}
+
+/*
+STACK
+
+Layers things on top of each other
+*/
+.stack {
+	display: grid;
+	grid-template-areas: "stack";
+	> * {
+		grid-area: stack;
+	}
+}
+
+/*
+Flow layouts for text - Vertical Rhythm between blocks
+
+CUSTOM PROPERTIES AND CONFIGURATION
+--flow-space (1em): Space after the current item to apply
+*/
+.flow > * + * {
+	margin-block-start: var( --flow-space, 1em );
+}
+
+
+/*
+GRID
+A formal grid of elements, in rigid columns
+e.g. Tiles on Dashboard/Settings Screen
+
+CUSTOM PROPERTIES AND CONFIGURATION
+--grid-auto (auto-fill): Choose how columns are created, defaults to as
+many as possible even if empty, or 'auto-fit' to expand the columns to fit the row
+
+--grid-min-width (18rem): How large each grid column should be before creating new ones
+
+--gap-width (0): Gap between grid rows and columns
+*/
+.grid {
+	display: grid;
+	gap: var(--gap-width, 0);
+	grid-template-columns: repeat(var(--grid-auto, auto-fill), minmax(min(100%, var(--grid-min-width, 18rem)), 1fr));
+}
+
+/*
+Tabbed interface, using TabbyJS
+
+Styled using non-class attributes to ensure functionality. Shared styling with sub-header alt navs
+*/
+:where([role="tablist"],.nav-list) {
+	border-block-end: 1px solid #C4C4C4;
+	list-style: ''; // Retains semantics
+	margin-inline: 0;
+	margin-block: 0 1.5rem;
+	padding: 0;
+	display: flex;
+	gap: var(--gap-width, 2rem);
+	justify-content: flex-start;
+	overflow-x: auto;
+	scroll-behavior: smooth;
+	scroll-snap-type: x proximity;
+
+	li {
+		margin: 0;
+		padding: 0;
+		scroll-snap-align: start;
+	}
+
+	:where([role="tab"],.nav-link) {
+		float: none; // Combat against WP
+		display: block;
+		margin: 0;
+		padding-block: .25rem .75rem;
+		padding-inline: 0;
+		text-decoration: none;
+		color: #555;
+		background-color: transparent;
+		font-size: 1.25rem;
+		font-weight: 600;
+		box-shadow: none;
+		border: none;
+		border-block-end: 2px solid transparent;
+
+		/**
+		 * Active tab styling
+		 */
+		&:where([aria-selected="true"],.is-active) {
+			color: #000;
+			border-color: var(--purple);
+		}
+
+		/**
+		 * Tabs on hover
+		 */
+		&:where(:hover,:focus):not([aria-selected="true"]) {
+			color: #000;
+			border-color: var(--purple);
+		}
+	}
+}
